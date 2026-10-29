@@ -2,17 +2,55 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Notas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Notas - Rediseño UX/UI</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <h4>LISTADO DE NOTAS</h4>
-  <img src="img/banner.png">
-  <p>Escriba su nota y presione el boton.</p>
-  <input id="titulo" placeholder="Titulo">
-  <input id="contenido" placeholder="Detalle">
-  <a href="#" id="borrar">BORRAR TODO</a>
-  <button id="enviar">ok</button>
-  <ul id="lista"></ul>
+  <main class="tarjeta">
+    <img src="img/banner.png" alt="Ilustración de notas y organización personal">
+    <h1>Mi Gestor de Notas</h1>
+    <p class="ayuda">Completa los campos para registrar tu nota. Todos los campos son obligatorios.</p>
+
+    <form id="formulario-notas" novalidate>
+      <fieldset>
+        <legend>1. Contenido de la nota</legend>
+        <label for="titulo">Título de la nota</label>
+        <input id="titulo" type="text" placeholder="Ej. Repasar para el laboratorio" required>
+
+        <label for="contenido">Detalle de la nota</label>
+        <input id="contenido" type="text" placeholder="Escribe tu nota aquí..." required>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Categoría</legend>
+        <label for="categoria">Selecciona una categoría</label>
+        <select id="categoria" required>
+          <option value="">Selecciona una opción</option>
+          <optgroup label="Estudios">
+            <option value="Tecsup">Tecsup</option>
+            <option value="Laboratorios">Laboratorios</option>
+          </optgroup>
+          <optgroup label="Personal">
+            <option value="Proyectos">Proyectos</option>
+            <option value="Recordatorios">Recordatorios</option>
+          </optgroup>
+        </select>
+      </fieldset>
+
+      <p id="mensaje" class="mensaje" role="status"></p>
+
+      <div class="acciones">
+        <button type="submit" class="boton-principal">Guardar Nota</button>
+        <button type="reset" class="boton-secundario">Limpiar campos</button>
+      </div>
+    </form>
+
+    <section class="seccion-notas">
+      <h2>Tus Notas Registradas</h2>
+      <ul id="lista-notas" class="lista-notas"></ul>
+    </section>
+  </main>
   <script src="app.js"></script>
 </body>
+</html>
